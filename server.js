@@ -8,6 +8,8 @@ app.listen(3000, () => {
   console.log("Server is listening on port 3000...");
 });
 
+app.use(express.json());
+
 app.get("/messages", (req, res) => {
   res.json({ message: biggerObject });
 });
@@ -22,8 +24,6 @@ let biggerObject = {
   },
 };
 
-app.post("/messages", (req, res) => {
-  res.json({ message: "New message created." });
+app.post("/mess", (req, res) => {
+  res.send(req.body);
 });
-
-app.use(express.json());
